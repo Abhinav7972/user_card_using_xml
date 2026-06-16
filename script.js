@@ -15,16 +15,18 @@ request.send();
 
 request.addEventListener("load",  function () {
     //console.log(typeof request.responseText);
+    if (request.status === 404) { alert('something went wrong'); return; }
     console.log(JSON.parse(request.responseText));
-
     const data = JSON.parse(request.responseText);
     displayUser(data,'beforeend');
     
 
     if (id > 1) {
+        
         request2.open("GET", `https://dummyjson.com/users/${id - 1}`);
         request2.send();
-        request2.addEventListener('load', function () {
+    request2.addEventListener('load', function () {
+         if(request2.status === 404) { return; }
             const data = JSON.parse(this.responseText);
             console.log(data);
             displayUser(data, 'afterbegin', 'other');
@@ -49,5 +51,5 @@ function displayUser(data,pos,className='')
     
 }
 
-getDetails(2);
-getDetails(10);
+getDetails(1);
+
