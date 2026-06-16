@@ -26,16 +26,16 @@ request.addEventListener("load",  function () {
     request2.addEventListener('load', function () {
         const data = JSON.parse(this.responseText);
         console.log(data);
-        displayUser(data,'afterbegin');
+        displayUser(data,'afterbegin','other');
     })
 })
 
 }
 
 
-function displayUser(data,pos)
+function displayUser(data,pos,className='')
 {
-     const card = ` <div class="card">
+     const card = ` <div class="card ${className}">
             <img src="${data.image}" alt="" srcset="" id="profile-pic">
              <h3 id="name">${data.firstName}</h3>
              <h3 id="surname">${data.lastName}</h3>
