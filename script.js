@@ -25,7 +25,7 @@ request.addEventListener("load", () => {
              <button class="btn">view profile</button>
         </div>`
     
-    card_cont.innerHTML = card;
+    card_cont.insertAdjacentHTML('beforeend',card)
     
 })
 
@@ -33,6 +33,10 @@ request.addEventListener("load", () => {
 
 
 getDetails(10);
+getDetails(2);
+getDetails(4);
+
+
 
 
 
