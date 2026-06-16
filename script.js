@@ -3,10 +3,12 @@ const card_cont = document.querySelector('.card-container');
 
 
 
+function getDetails(id)
+{
 const request = new XMLHttpRequest();
 
 
-request.open("GET", 'https://dummyjson.com/users/10');
+request.open("GET", `https://dummyjson.com/users/${id}`);
 request.send();
 
 
@@ -26,3 +28,17 @@ request.addEventListener("load", () => {
     card_cont.innerHTML = card;
     
 })
+
+}
+
+
+getDetails(10);
+
+
+
+
+
+
+
+
+
