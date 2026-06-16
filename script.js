@@ -17,7 +17,15 @@ request.addEventListener("load", () => {
     console.log(JSON.parse(request.responseText));
 
     const data = JSON.parse(request.responseText);
-    const card = ` <div class="card">
+    displayUser(data);
+})
+
+}
+
+
+function displayUser(data)
+{
+     const card = ` <div class="card">
             <img src="${data.image}" alt="" srcset="" id="profile-pic">
              <h3 id="name">${data.firstName}</h3>
              <h3 id="surname">${data.lastName}</h3>
@@ -27,14 +35,11 @@ request.addEventListener("load", () => {
     
     card_cont.insertAdjacentHTML('beforeend',card)
     
-})
-
 }
 
-
-getDetails(10);
+getDetails(1);
 getDetails(2);
-getDetails(4);
+getDetails(3);
 
 
 
