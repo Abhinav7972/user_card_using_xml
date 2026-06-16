@@ -7,7 +7,7 @@ function getDetails(id)
 {
 const request = new XMLHttpRequest();
 const request2 = new XMLHttpRequest();
-
+const request3 = new XMLHttpRequest();
 request.open("GET", `https://dummyjson.com/users/${id}`);
 request.send();
 
@@ -29,8 +29,19 @@ request.addEventListener("load",  function () {
          if(request2.status === 404) { return; }
             const data = JSON.parse(this.responseText);
             console.log(data);
-            displayUser(data, 'afterbegin', 'other');
-        });
+        displayUser(data, 'afterbegin', 'other');
+        
+
+
+        request3.open("GET", `https://dummyjson.com/users/${id + 1}`);
+        request3.send();
+        request3.addEventListener('load', function () { 
+            const data = JSON.parse(this.responseText);
+            console.log('req 3 data',data);
+            displayUser(data, 'beforeend', 'other');
+        })
+    }); 
+        
     }
 })
 
@@ -51,5 +62,5 @@ function displayUser(data,pos,className='')
     
 }
 
-getDetails(1);
+getDetails(2);
 
