@@ -21,13 +21,15 @@ request.addEventListener("load",  function () {
     displayUser(data,'beforeend');
     
 
-    request2.open("GET", `https://dummyjson.com/users/${id-1}`);
-    request2.send();
-    request2.addEventListener('load', function () {
-        const data = JSON.parse(this.responseText);
-        console.log(data);
-        displayUser(data,'afterbegin','other');
-    })
+    if (id > 1) {
+        request2.open("GET", `https://dummyjson.com/users/${id - 1}`);
+        request2.send();
+        request2.addEventListener('load', function () {
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+            displayUser(data, 'afterbegin', 'other');
+        });
+    }
 })
 
 }
@@ -48,17 +50,4 @@ function displayUser(data,pos,className='')
 }
 
 getDetails(2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+getDetails(10);
