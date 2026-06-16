@@ -56,3 +56,9 @@ border-radius:50%;
     cursor: pointer;
     border: none;
 }
+
+
+.other
+{
+     scale: 0.9;
+}
